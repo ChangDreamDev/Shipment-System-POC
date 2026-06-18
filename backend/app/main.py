@@ -55,11 +55,11 @@ app = FastAPI(
 )
 
 def _cors_settings() -> tuple[list[str], bool]:
-    raw = settings.cors_origins.strip()
+    raw = settings.cors_origins.strip().strip('"').strip("'")
     if not raw or raw == "*":
         # Browsers reject credentials with Access-Control-Allow-Origin: *
         return ["*"], False
-    origins = [origin.strip() for origin in raw.split(",") if origin.strip()]
+    origins = [origin.strip().rstrip("/") for origin in raw.split(",") if origin.strip()]
     return origins, False
 
 
