@@ -20,7 +20,8 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     openai_model: str = "gpt-4o-mini"
     google_maps_api_key: str = ""
-    google_maps_api_key: str = ""
+    # Comma-separated frontend URLs, or "*" for all (dev only)
+    cors_origins: str = "*"
 
 
 settings = Settings()

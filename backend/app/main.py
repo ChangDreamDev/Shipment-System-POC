@@ -4,7 +4,7 @@ import json
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config import DATA_DIR
+from app.config import DATA_DIR, settings
 from app.database import close_db, connect_db, get_db
 from app.routers import api
 
@@ -54,10 +54,21 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+def _cors_settings() -> tuple[list[str], bool]:
+    raw = settings.cors_origins.strip()
+    if not raw or raw == "*":
+        # Browsers reject credentials with Access-Control-Allow-Origin: *
+        return ["*"], False
+    origins = [origin.strip() for origin in raw.split(",") if origin.strip()]
+    return origins, False
+
+
+_cors_origins, _allow_credentials = _cors_settings()
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=_cors_origins,
+    allow_credentials=_allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
