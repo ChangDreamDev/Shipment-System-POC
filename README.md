@@ -56,7 +56,7 @@ Place the official workbook at `data/cinesis_test.xlsx` (tabs: **Sample Conversa
 
 | File | Purpose |
 |------|---------|
-| `backend/.env` | `OPENAI_API_KEY`, `MONGODB_URL` |
+| `backend/.env` | `OPENAI_API_KEY`, `OPENAI_MODEL`, `MONGODB_URL`, `MONGODB_DB`,`GOOGLE_MAPS_API_KEY`, `CORS_ORIGINS` |
 | `frontend/.env` | `VITE_GOOGLE_MAPS_API_KEY`, `VITE_GOOGLE_MAP_ID` (`DEMO_MAP_ID` for dev) |
 
 In dev, leave `VITE_API_URL` empty so requests use the Vite proxy (`/api` → backend).
