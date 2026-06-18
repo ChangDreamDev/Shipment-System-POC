@@ -1,0 +1,22 @@
+# Python
+backend/.env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+frontend/.env
+frontend/node_modules/
+frontend/dist/
+
+# Data / secrets
+data/cinesis_test.xlsx
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
