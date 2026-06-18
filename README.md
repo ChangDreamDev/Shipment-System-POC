@@ -1,5 +1,9 @@
 # Cinesis Good Fit Test
 
+<p align="center">
+  <img src="./Screenshot-1.png" alt="Cinesis Good Fit Test — map with truck, home base, and ranked load routes" width="900" />
+</p>
+
 AI dispatcher take-home: extract a driver profile from a phone transcript (Part A), filter and rank loads by effective rate/mile (Part B).
 
 **Stack:** Python, FastAPI, LangChain, MongoDB, React.
